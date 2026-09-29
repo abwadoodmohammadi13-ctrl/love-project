@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #a18cd1);
+    background-size: 300% 300%;
+    animation: bgMove 10s infinite alternate;
+}
+
+@keyframes bgMove {
+    from { background-position: 0% 50%; }
+    to { background-position: 100% 50%; }
+}
+
+#backgroundHearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    animation: floatUp 7s linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+    20% { opacity: 0.7; }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.card {
+    width: 100%;
+    max-width: 430px;
+    padding: 38px 25px;
+    text-align: center;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 30px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(90,0,60,0.25);
+    animation: appear 0.6s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.emoji {
+    font-size: 75px;
+    margin-bottom: 18px;
+    animation: beat 1.5s infinite;
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+
+h1 {
+    font-size: 25px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+p {
+    font-size: 15px;
+    line-height: 2.2;
+    color: #fff4fa;
+    margin-bottom: 25px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+button {
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.yes {
+    background: linear-gradient(135deg, #fff, #ffe0ed);
+    color: #d63384;
+    box-shadow: 0 8px 25px rgba(100,0,50,0.2);
+}
+
+.no {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.6);
+    transition: left 0.2s, top 0.2s;
+}
+
+.date {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 20px 12px;
+    border-radius: 20px;
+    margin: 20px 0 25px;
+    line-height: 2.2;
+    color: white;
+}
+
+.date h2 {
+    font-size: 26px;
+    margin: 10px 0;
+    color: #fff;
+}
+
+@media (max-width: 400px) {
+    .card { padding: 30px 18px; }
+    h1 { font-size: 22px; }
+    .emoji { font-size: 65px; }
+}
